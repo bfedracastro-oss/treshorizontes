@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tres Horizontes - Nutrición Animal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            green: '#1a3b2b',
+                            orange: '#b34d24',
+                            brown: '#6d4c38',
+                            light: '#f4f4f4',
+                            dark: '#111111'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .hero-bg {
+            background-image: linear-gradient(rgba(26, 59, 43, 0.7), rgba(26, 59, 43, 0.7)), url('https://images.unsplash.com/photo-1596733430284-f7437280800b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 100vh;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-brand-light text-gray-800 antialiased">
+
+    <header class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <img src="https://i.postimg.cc/yxLRw6n4/Gemini-Generated-Image-8ekmlj8ekmlj8ekm.png" alt="Tres Horizontes Logo" class="h-24 md:h-32 w-auto object-contain rounded">
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden lg:flex items-center space-x-6">
+                    <a href="#" class="text-brand-green font-medium hover:text-brand-orange transition-colors">Inicio</a>
+                    <a href="#nosotros" class="text-gray-600 font-medium hover:text-brand-orange transition-colors">Nosotros</a>
+                    
+                    <!-- Dropdown for Productos -->
+                    <div class="relative group">
+                        <button class="flex items-center text-gray-600 font-medium hover:text-brand-orange transition-colors py-2">
+                            Productos <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </button>
+                        <div class="absolute left-0 mt-0 w-48 bg-white border border-gray-100 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                            <a href="#linea-bovino" class="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-light hover:text-brand-orange">Línea Bovino</a>
+                            <a href="#linea-porcino" class="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-light hover:text-brand-orange">Línea Porcino</a>
+                            <a href="#linea-avicola" class="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-light hover:text-brand-orange">Línea Avícola</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#servicios" class="text-gray-600 font-medium hover:text-brand-orange transition-colors">Servicios</a>
+                    <a href="#condiciones" class="text-gray-600 font-medium hover:text-brand-orange transition-colors">Condiciones Comerciales</a>
+                    <a href="#novedades" class="text-gray-600 font-medium hover:text-brand-orange transition-colors">Novedades</a>
+                    <a href="#contacto-section" class="text-gray-600 font-medium hover:text-brand-orange transition-colors">Contacto</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-brand-green focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="lg:hidden bg-white border-t border-gray-100">
+            <div class="container mx-auto px-4 py-4 space-y-4">
+                <a href="#" class="block text-brand-green font-medium">Inicio</a>
+                <a href="#nosotros" class="block text-gray-600 font-medium">Nosotros</a>
+                <div class="space-y-2 pl-4 border-l-2 border-brand-light">
+                    <a href="#productos" class="block text-gray-800 font-medium mb-1">Productos</a>
+                    <a href="#linea-bovino" class="block text-gray-600 text-sm">Línea Bovino</a>
+                    <a href="#linea-porcino" class="block text-gray-600 text-sm">Línea Porcino</a>
+                    <a href="#linea-avicola" class="block text-gray-600 text-sm">Línea Avícola</a>
+                </div>
+                <a href="#servicios" class="block text-gray-600 font-medium">Servicios</a>
+                <a href="#condiciones" class="block text-gray-600 font-medium">Condiciones Comerciales</a>
+                <a href="#novedades" class="block text-gray-600 font-medium">Novedades</a>
+                <a href="#contacto-section" class="block text-gray-600 font-medium">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-bg h-[80vh] min-h-[600px] mt-28 md:mt-36 flex items-center relative">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="max-w-2xl text-white">
+                <span class="inline-block py-1 px-3 rounded-full bg-brand-orange/90 text-sm font-semibold tracking-wider mb-4">ALIMENTOS BALANCEADOS</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                    Nutrimos hoy, proyectamos el mañana.
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-100 leading-relaxed">
+                    Soluciones nutricionales de alta calidad para las cadenas bovina, porcina y avícola. Optimizamos su eficiencia productiva y rentabilidad.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#productos" class="bg-brand-orange text-white text-center px-8 py-3 rounded-full font-semibold hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Nuestros productos
+                    </a>
+                    <a href="#nosotros" class="bg-white/10 backdrop-blur-sm border-2 border-white text-white text-center px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-brand-green transition-all">
+                        Quiénes somos
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+            <svg class="relative block w-full h-12 md:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,123.63,192.27,108.41Z" fill="#f4f4f4"></path>
+            </svg>
+        </div>
+    </section>
+
+    <section class="py-20 bg-brand-light">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-green mb-4">Líneas de Producción</h2>
+                <div class="w-24 h-1 bg-brand-orange mx-auto rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Bovine Line -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group border border-gray-100 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://i.postimg.cc/nLxWkZRB/bov-inici.jpg" alt="Línea Bovino" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-6 text-2xl font-bold text-white">Línea Bovino</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-gray-600 mb-6 flex-grow">
+                            Alimento balanceado completo diseñado exclusivamente para potenciar el rendimiento en las etapas de iniciador, recría y terminación.
+                        </p>
+                        <a href="#linea-bovino" class="inline-flex items-center text-brand-orange font-semibold hover:text-brand-green transition-colors mt-auto">
+                            Ver catálogo completo <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Porcine Line -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group border border-gray-100 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://i.postimg.cc/pV0tL90S/porci-ini.webp" alt="Línea Porcino" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-6 text-2xl font-bold text-white">Línea Porcino</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-gray-600 mb-6 flex-grow">
+                            Soluciones específicas para acompañar el crecimiento óptimo. Alimentos formulados para las fases de iniciador, desarrollo y terminador.
+                        </p>
+                        <a href="#linea-porcino" class="inline-flex items-center text-brand-orange font-semibold hover:text-brand-green transition-colors mt-auto">
+                            Ver catálogo completo <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Poultry Line -->
+                <div class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group border border-gray-100 flex flex-col">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://i.postimg.cc/9Xgvj6MK/parri-ini.jpg" alt="Línea Avícola" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 class="absolute bottom-4 left-6 text-2xl font-bold text-white">Línea Avícola</h3>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <p class="text-gray-600 mb-6 flex-grow">
+                            Nutrición precisa para maximizar resultados, abarcando alimentos para parrilleros iniciador, parrilleros terminador y gallinas ponedoras.
+                        </p>
+                        <a href="#linea-avicola" class="inline-flex items-center text-brand-orange font-semibold hover:text-brand-green transition-colors mt-auto">
+                            Ver catálogo completo <i class="fas fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="productos" class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-green mb-4">Catálogo de Productos</h2>
+                <div class="w-24 h-1 bg-brand-orange mx-auto rounded"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto">Soluciones específicas para cada especie y etapa productiva, elaboradas con los más altos estándares de calidad.</p>
+            </div>
+
+            <!-- Bovinos Detail -->
+            <div id="linea-bovino" class="mb-20">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center text-white">
+                        <i class="fas fa-cow text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800">Línea Bovino</h3>
+                </div>
+                <p class="text-gray-600 mb-8 border-l-4 border-brand-green pl-4">Producimos alimento balanceado completo formulado específicamente para el desarrollo eficiente del ganado destinado a producción de carne.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-brand-light rounded-xl overflow-hidden border border-gray-200 hover:border-brand-green transition-colors flex flex-col">
+                        <img src="https://i.postimg.cc/nLxWkZRB/bov-inici.jpg" alt="Iniciador Bovino" class="w-full h-40 object-cover">
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h4 class="font-bold text-lg mb-2 text-brand-green">Iniciador</h4>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Alimento de alta digestibilidad para los primeros meses, asegurando un rápido desarrollo del rumen y óptima ganancia inicial.</p>
+                            <button onclick="openModal('modal-bovino-iniciador')" class="inline-flex items-center text-brand-green font-semibold hover:text-brand-orange transition-colors mt-auto text-sm text-left">
+                                Más información <i class="fas fa-search-plus ml-1 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-brand-light rounded-xl overflow-hidden border border-gray-200 hover:border-brand-green transition-colors flex flex-col">
+                        <img src="https://i.postimg.cc/P5YcYNMB/bov-recria.jpg" alt="Recría Bovino" class="w-full h-40 object-cover">
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h4 class="font-bold text-lg mb-2 text-brand-green">Recría</h4>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Fórmula balanceada para sostener un crecimiento esquelético y muscular constante antes de la etapa de terminación.</p>
+                            <button onclick="openModal('modal-bovino-recria')" class="inline-flex items-center text-brand-green font-semibold hover:text-brand-orange transition-colors mt-auto text-sm text-left">
+                                Más información <i class="fas fa-search-plus ml-1 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-brand-light rounded-xl overflow-hidden border border-gray-200 hover:border-brand-green transition-colors flex flex-col">
+                        <img src="https://i.postimg.cc/c4V2vff8/bov-termi.avif" alt="Terminación Bovino" class="w-full h-40 object-cover">
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h4 class="font-bold text-lg mb-2 text-brand-green">Terminación</h4>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Dieta de alta energía para maximizar la ganancia diaria de peso y lograr el grado de engrasamiento ideal.</p>
+                            <button onclick="openModal('modal-bovino-terminacion')" class="inline-flex items-center text-brand-green font-semibold hover:text-brand-orange transition-colors mt-auto text-sm text-left">
+                                Más información <i class="fas fa-search-plus ml-1 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Porcinos Detail -->
+            <div id="linea-porcino" class="mb-20">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 bg-brand-orange rounded-full flex items-center justify-center text-white">
+                        <i class="fas fa-piggy-bank text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800">Línea Porcino</h3>
+                </div>
+                <p class="text-gray-600 mb-8 border-l-4 border-brand-orange pl-4">Soluciones específicas para acompañar el crecimiento óptimo. Alimentos formulados para las fases de iniciador, desarrollo y terminador.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-brand-light rounded-xl overflow-hidden border border-gray-200 hover:border-brand-orange transition-colors flex flex-col">
+                        <img src="https://i.postimg.cc/pV0tL90S/porci-ini.webp" alt="Iniciador Porcino" class="w-full h-40 object-cover">
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h4 class="font-bold text-lg mb-2 text-brand-orange">Iniciador</h4>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Nutrición especializada posdestete, con ingredientes palatables que favorecen la adaptación y previenen trastornos digestivos.</p>
+                            <button onclick="openModal('modal-porcino-iniciador')" class="inline-flex items-center text-brand-orange font-semibold hover:text-brand-green transition-colors mt-auto text-sm text-left">
+                                Más información <i class="fas fa-search-plus ml-1 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-brand-light rounded-xl overflow-hidden border border-gray-200 hover:border-brand-orange transition-colors flex flex-col">
+                        <img src="https://i.postimg.cc/SKWhSD5L/porci-recria.jpg" alt="Desarrollo Porcino" class="w-full h-40 object-cover">
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h4 class="font-bold text-lg mb-2 text-brand-orange">Desarrollo</h4>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Fórmula diseñada para impulsar el máximo crecimiento magro durante la fase intermedia de producción.</p>
+                            <button onclick="openModal('modal-porcino-desarrollo')" class="inline-flex items-center text-brand-orange font-semibold hover:text-brand-green transition-colors mt-auto text-sm text-left">
+                                Más información <i class="fas fa-search-plus ml-1 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-brand-light rounded-xl overflow-hidden border border-gray-200 hover:border-brand-orange transition-colors flex flex-col">
+                        <img src="https://i.postimg.cc/90xV30SW/porci-fin.jpg" alt="Terminación Porcino" class="w-full h-40 object-cover">
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h4 class="font-bold text-lg mb-2 text-brand-orange">Terminación</h4>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Alimento concentrado para consolidar la estructura y preparar al animal para las etapas finales, optimizando la conversión.</p>
+                            <button onclick="openModal('modal-porcino-terminacion')" class="inline-flex items-center text-brand-orange font-semibold hover:text-brand-green transition-colors mt-auto text-sm text-left">
+                                Más información <i class="fas fa-search-plus ml-1 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Avicola Detail -->
+            <div id="linea-avicola">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 bg-brand-brown rounded-full flex items-center justify-center text-white">
+                        <i class="fas fa-kiwi-bird text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-gray-800">Línea Avícola</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-brand-light rounded-xl overflow-hidden border border-gray-200 hover:border-brand-brown transition-colors flex flex-col">
+                        <img src="https://i.postimg.cc/9Xgvj6MK/parri-ini.jpg" alt="Parrilleros Iniciador" class="w-full h-40 object-cover">
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h4 class="font-bold text-lg mb-2 text-brand-brown">Parrilleros Iniciador</h4>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Micro-peletizado de alta digestibilidad para los primeros días, clave para el desarrollo inmunológico y óseo del pollito.</p>
+                            <button onclick="openModal('modal-ficha-iniciador')" class="inline-flex items-center text-brand-brown font-semibold hover:text-brand-orange transition-colors mt-auto text-sm text-left">
+                                Más información <i class="fas fa-search-plus ml-1 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-brand-light rounded-xl overflow-hidden border border-gray-200 hover:border-brand-brown transition-colors flex flex-col">
+                        <img src="https://i.postimg.cc/PJJ9w468/parri-fin.webp" alt="Parrilleros Terminador" class="w-full h-40 object-cover">
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h4 class="font-bold text-lg mb-2 text-brand-brown">Parrilleros Terminador</h4>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Dieta diseñada para la última fase, orientada a lograr el peso objetivo con una excelente conversión alimenticia y calidad de carcasa.</p>
+                            <button onclick="openModal('modal-avicola-terminador')" class="inline-flex items-center text-brand-brown font-semibold hover:text-brand-orange transition-colors mt-auto text-sm text-left">
+                                Más información <i class="fas fa-search-plus ml-1 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-brand-light rounded-xl overflow-hidden border border-gray-200 hover:border-brand-brown transition-colors flex flex-col">
+                        <img src="https://i.postimg.cc/Bv5r9tLz/gallinas-ponedoras-scaled.jpg" alt="Gallinas Ponedoras" class="w-full h-40 object-cover">
+                        <div class="p-5 flex flex-col flex-grow">
+                            <h4 class="font-bold text-lg mb-2 text-brand-brown">Gallinas Ponedoras</h4>
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Nutrición balanceada rica en calcio y minerales esenciales para mantener altos picos de postura y asegurar la calidad de la cáscara.</p>
+                            <button onclick="openModal('modal-avicola-ponedoras')" class="inline-flex items-center text-brand-brown font-semibold hover:text-brand-orange transition-colors mt-auto text-sm text-left">
+                                Más información <i class="fas fa-search-plus ml-1 text-xs"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="py-20 bg-brand-light">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 relative">
+                    <div class="absolute inset-0 bg-brand-brown/10 rounded-3xl transform translate-x-4 translate-y-4 md:translate-x-6 md:translate-y-6"></div>
+                    <img src="https://i.postimg.cc/xdVJCpsP/INDUSTRIAS-A-LAS-QUE-ABASTECEMOS-resultado.jpg" alt="Instalaciones Tres Horizontes" class="relative z-10 rounded-3xl shadow-xl w-full object-cover h-[400px]">
+                    
+                    <div class="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 bg-brand-green text-white p-6 rounded-2xl shadow-lg z-20 w-64 border border-brand-green/20">
+                        <h4 class="font-bold text-xl mb-1">Cercanía y Calidad</h4>
+                        <p class="text-sm text-gray-200">Soluciones adaptadas para el pequeño y mediano productor.</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <span class="text-brand-orange font-bold tracking-wider uppercase text-sm mb-2 block">QUIÉNES SOMOS</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-brand-green mb-6">Comprometidos con el desarrollo de la región centro</h2>
+                    
+                    <div class="prose max-w-none text-gray-600 mb-8 space-y-4">
+                        <p><strong>Tres Horizontes</strong> es una empresa destinada a la producción y comercialización de alimentos balanceados para las cadenas bovina, porcina y avícola de la región centro de la República Argentina.</p>
+                        <p>El proyecto surge como respuesta a la creciente necesidad de los productores agropecuarios de acceder a soluciones nutricionales de alta calidad que contribuyan a mejorar la eficiencia productiva, optimizar la conversión alimenticia y aumentar la rentabilidad de sus establecimientos.</p>
+                        <p>A diferencia de los grandes fabricantes nacionales, cuya estrategia comercial suele orientarse hacia clientes de gran escala o cadenas integradas, <strong>Tres Horizontes focaliza su propuesta de valor en productores pequeños y medianos no integrados</strong>, segmento que presenta una elevada participación dentro del mercado nacional y que, en muchos casos, no recibe un nivel adecuado de asesoramiento técnico ni soluciones adaptadas a sus requerimientos particulares.</p>
+                    </div>
+
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-brand-orange mt-1 mr-3 text-lg"></i>
+                            <span class="text-gray-700 font-medium">Conocimiento técnico y científico aplicado.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-brand-orange mt-1 mr-3 text-lg"></i>
+                            <span class="text-gray-700 font-medium">Fórmulas especiales ajustadas a cada necesidad.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-brand-orange mt-1 mr-3 text-lg"></i>
+                            <span class="text-gray-700 font-medium">Asesoramiento y asistencia personalizada a campo.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-orange font-bold tracking-wider uppercase text-sm mb-2 block">NUESTROS SERVICIOS</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-green mb-4">¿Cómo vamos a ayudarlo?</h2>
+                <div class="w-24 h-1 bg-brand-orange mx-auto rounded"></div>
+                <p class="mt-6 text-gray-600 max-w-3xl mx-auto text-lg">
+                    Lo acompañaremos en todas las etapas del desarrollo de sus animales, desde la crianza hasta la faena, con los mejores programas de nutrición para maximizar el beneficio de su negocio.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-brand-light rounded-2xl p-8 border border-gray-100 flex items-start gap-6 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center flex-shrink-0 text-brand-green">
+                        <i class="fas fa-flask text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Fórmulas Especiales</h3>
+                        <p class="text-gray-600">Elaboración de fórmulas especiales ajustadas a las necesidades de cada planteo productivo.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-light rounded-2xl p-8 border border-gray-100 flex items-start gap-6 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center flex-shrink-0 text-brand-green">
+                        <i class="fas fa-truck text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Logística Eficiente</h3>
+                        <p class="text-gray-600">Flota propia y coordinada para garantizar la entrega directa en su establecimiento en tiempo y forma, asegurando disponibilidad permanente.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-light rounded-2xl p-8 border border-gray-100 flex items-start gap-6 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center flex-shrink-0 text-brand-green">
+                        <i class="fas fa-user-md text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Asistencia Técnica</h3>
+                        <p class="text-gray-600">Asistencia personalizada con técnicos especialistas en cada etapa evolutiva.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-light rounded-2xl p-8 border border-gray-100 flex items-start gap-6 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center flex-shrink-0 text-brand-green">
+                        <i class="fas fa-chalkboard-teacher text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Capacitación Continua</h3>
+                        <p class="text-gray-600">Cursos de capacitación al personal de los establecimientos con nuestro equipo y asesores externos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="#contacto-section" class="inline-flex items-center justify-center bg-brand-green text-white px-8 py-4 rounded-full font-bold hover:bg-brand-orange transition-colors shadow-lg group">
+                    Solicitar asesoría <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="condiciones" class="py-20 bg-brand-light">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-orange font-bold tracking-wider uppercase text-sm mb-2 block">FACILIDADES</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-green mb-4">Condiciones Comerciales</h2>
+                <div class="w-24 h-1 bg-brand-orange mx-auto rounded"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg font-medium">
+                    Que la correcta nutrición de tus animales no tenga límites.
+                </p>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-2">
+                    Te ofrecemos múltiples formas de pago para que puedas acceder a todos los productos que necesitás. Podés realizar tus pagos a través de los siguientes medios:
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                    
+                    <!-- Columna Izquierda -->
+                    <div class="space-y-6 flex flex-col justify-around">
+                        <div class="flex items-center gap-4 border-b border-gray-100 pb-4 h-16">
+                            <div class="w-12 h-12 rounded-full bg-brand-orange/10 text-brand-orange flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-exchange-alt text-xl"></i>
+                            </div>
+                            <span class="text-gray-800 font-semibold text-lg">Canje de granos</span>
+                        </div>
+                        <div class="flex items-center gap-4 border-b border-gray-100 pb-4 h-16">
+                            <div class="w-12 h-12 rounded-full bg-brand-orange/10 text-brand-orange flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-money-check text-xl"></i>
+                            </div>
+                            <span class="text-gray-800 font-semibold text-lg">Cheque electrónico</span>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha -->
+                    <div class="space-y-6 flex flex-col justify-around">
+                        <div class="flex items-center gap-4 border-b border-gray-100 pb-4 h-16">
+                            <div class="w-12 h-12 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-university text-xl"></i>
+                            </div>
+                            <span class="text-gray-800 font-semibold text-lg">Depósito bancario</span>
+                        </div>
+                        <div class="flex items-center gap-4 border-b border-gray-100 pb-4 h-16">
+                            <div class="w-12 h-12 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-random text-xl"></i>
+                            </div>
+                            <span class="text-gray-800 font-semibold text-lg">Transferencia bancaria</span>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-100">
+                    <h3 class="font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <i class="far fa-credit-card text-brand-green"></i> Tarjetas Agropecuarias Convenidas
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium">BBVA Francés Visa Agro</span>
+                        <span class="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium">Galicia Rural</span>
+                        <span class="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium">Macro Visa Agro</span>
+                        <span class="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium">Patagonia Visa Agro</span>
+                        <span class="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium">Santander Rio Visa</span>
+                        <span class="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium">AgroNación</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="novedades" class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-green mb-4">Últimas Novedades</h2>
+                <div class="w-24 h-1 bg-brand-orange mx-auto rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- News 1 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
+                    <img src="https://i.postimg.cc/8zzDbRjZ/images-(1).jpg" alt="Stress Térmico" class="w-full h-56 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-brand-orange text-xs font-bold tracking-wider uppercase mb-2">BOVINO</span>
+                        <h3 class="font-bold text-xl text-gray-800 mb-3 line-clamp-2">La nutrición animal y sus efectos sobre el stress térmico</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">El estrés térmico en bovinos es un desafío importante en la producción ganadera, especialmente en zonas con climas cálidos o durante las olas de calor.</p>
+                        <button onclick="openModal('modal-news-1')" class="inline-flex items-center text-brand-green font-semibold hover:text-brand-orange transition-colors mt-auto self-start">
+                            Leer más <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- News 2 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
+                    <img src="https://i.postimg.cc/dV3PCJxp/7w-QIh-UNT-1256x620-1.jpg" alt="Reapertura Exportar Carne Aviar" class="w-full h-56 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-brand-orange text-xs font-bold tracking-wider uppercase mb-2">AVÍCOLA</span>
+                        <h3 class="font-bold text-xl text-gray-800 mb-3 line-clamp-2">Argentina logró la reapertura para exportar carne aviar y ovoproductos a uno de los principales mercados mundiales</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">Las negociaciones con Japón se concretaron tras restituir el estatus de país libre de gripe aviar, fortaleciendo la inserción internacional del sector.</p>
+                        <button onclick="openModal('modal-news-2')" class="inline-flex items-center text-brand-green font-semibold hover:text-brand-orange transition-colors mt-auto self-start">
+                            Leer más <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- News 3 -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-lg transition-shadow">
+                    <img src="https://i.postimg.cc/bJjBmPmS/63ef7fe980b5a056b787e8666cddab9dd3ad8e5a.jpg" alt="Nutrición Porcina" class="w-full h-56 object-cover">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-brand-orange text-xs font-bold tracking-wider uppercase mb-2">PORCINO</span>
+                        <h3 class="font-bold text-xl text-gray-800 mb-3 line-clamp-2">Nutrición animal clave para resiliencia en producción porcina</h3>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">La nutrición animal anticipada mejora la producción porcina frente a desafíos como el estrés calórico y el destete, potenciando la resiliencia.</p>
+                        <button onclick="openModal('modal-news-3')" class="inline-flex items-center text-brand-green font-semibold hover:text-brand-orange transition-colors mt-auto self-start">
+                            Leer más <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto-section" class="py-20 bg-brand-light">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row border border-gray-100">
+                
+                <!-- Contact Info -->
+                <div class="lg:w-5/12 bg-brand-green text-white p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
+                    <div class="relative z-10 space-y-6">
+                        <div>
+                            <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">ESTAMOS EN CONTACTO</span>
+                            <h2 class="text-3xl font-bold mb-3">Contáctenos</h2>
+                            <p class="text-gray-200 text-sm leading-relaxed">Estamos para resolver todas sus consultas sobre nutrición animal y asesorar su establecimiento.</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-orange">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-orange mb-0.5 text-xs">Ubicación</h4>
+                                    <p class="text-xs text-gray-200 leading-snug">Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-orange">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-orange mb-0.5 text-xs">Llámenos</h4>
+                                    <p class="text-xs text-gray-200">+54(911)32368112</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-orange">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-orange mb-0.5 text-xs">Correo Electrónico</h4>
+                                    <p class="text-xs text-gray-200 break-all">info@treshorizontes.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-orange">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-orange mb-0.5 text-xs">Horarios de Atención</h4>
+                                    <p class="text-xs text-gray-200">Lunes a Viernes: 8:00 a 17:00 hs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute top-12 -left-12 w-32 h-32 bg-brand-orange/20 rounded-full blur-2xl pointer-events-none"></div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Envíenos su consulta</h3>
+                    <p class="text-gray-500 text-sm mb-6">Complete el formulario y nos pondremos en contacto a la brevedad.</p>
+                    
+                    <form id="contact-form" class="space-y-4" onsubmit="event.preventDefault(); alert('¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="nombre" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Nombre Completo *</label>
+                                <input type="text" id="nombre" name="nombre" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-all text-sm bg-gray-50/50" placeholder="Su nombre">
+                            </div>
+                            <div>
+                                <label for="telefono" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-all text-sm bg-gray-50/50" placeholder="Cód área + número">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-all text-sm bg-gray-50/50" placeholder="ejemplo@correo.com">
+                            </div>
+                            <div>
+                                <label for="localidad" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Localidad / Provincia</label>
+                                <input type="text" id="localidad" name="localidad" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-all text-sm bg-gray-50/50" placeholder="Su ubicación">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="mensaje" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="3" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-all text-sm bg-gray-50/50 resize-none" placeholder="¿En qué podemos ayudarle?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-orange text-white font-bold py-3 px-6 rounded-xl hover:bg-opacity-90 transition-all shadow-md text-sm tracking-wide">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-white pt-16 pb-8 border-t-4 border-brand-orange">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <img src="https://i.postimg.cc/yxLRw6n4/Gemini-Generated-Image-8ekmlj8ekmlj8ekm.png" alt="Tres Horizontes Logo" class="h-32 w-auto object-contain mb-4 bg-white p-2 rounded">
+                    <p class="text-gray-400 text-sm">Nutrimos hoy, proyectamos el mañana.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-brand-orange">Líneas</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#linea-bovino" class="hover:text-white transition-colors">Línea Bovino</a></li>
+                        <li><a href="#linea-porcino" class="hover:text-white transition-colors">Línea Porcino</a></li>
+                        <li><a href="#linea-avicola" class="hover:text-white transition-colors">Línea Avícola</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-brand-orange">Enlaces</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a></li>
+                        <li><a href="#servicios" class="hover:text-white transition-colors">Servicios</a></li>
+                        <li><a href="#condiciones" class="hover:text-white transition-colors">Condiciones Comerciales</a></li>
+                        <li><a href="#novedades" class="hover:text-white transition-colors">Novedades</a></li>
+                        <li><a href="#contacto-section" class="hover:text-white transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-brand-orange">Redes Sociales</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/treshorizontess/" target="_blank" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2026 Tres Horizontes. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal: Ficha Técnica - Parrilleros Iniciador -->
+    <div id="modal-ficha-iniciador" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+            <button onclick="closeModal('modal-ficha-iniciador')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <h3 class="text-2xl font-bold text-brand-green mb-4">Ficha Técnica - Parrillero Iniciador</h3>
+            <img src="https://i.postimg.cc/6qb7Mj61/FICHAS-EX.png" alt="Ficha Técnica Parrillero Iniciador" class="w-full h-auto rounded-lg shadow-md mb-4">
+            <button onclick="closeModal('modal-ficha-iniciador')" class="bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal: Ficha Técnica - Parrillero Terminador -->
+    <div id="modal-avicola-terminador" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+            <button onclick="closeModal('modal-avicola-terminador')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <h3 class="text-2xl font-bold text-brand-green mb-4">Ficha Técnica - Parrillero Terminador</h3>
+            <img src="https://i.postimg.cc/N0dJYXDB/parrillero-terminacion.png" alt="Ficha Técnica Parrillero Terminador" class="w-full h-auto rounded-lg shadow-md mb-4">
+            <button onclick="closeModal('modal-avicola-terminador')" class="bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal: Ficha Técnica - Gallinas Ponedoras -->
+    <div id="modal-avicola-ponedoras" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+            <button onclick="closeModal('modal-avicola-ponedoras')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <h3 class="text-2xl font-bold text-brand-green mb-4">Ficha Técnica - Gallinas Ponedoras</h3>
+            <img src="https://i.postimg.cc/7YzW7fH5/gallinas-ponedoras.png" alt="Ficha Técnica Gallinas Ponedoras" class="w-full h-auto rounded-lg shadow-md mb-4">
+            <button onclick="closeModal('modal-avicola-ponedoras')" class="bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal: Ficha Técnica - Bovino Iniciador -->
+    <div id="modal-bovino-iniciador" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+            <button onclick="closeModal('modal-bovino-iniciador')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <h3 class="text-2xl font-bold text-brand-green mb-4">Ficha Técnica - Bovino Iniciador</h3>
+            <img src="https://i.postimg.cc/MHMVRJqy/bovino-iniciador.png" alt="Ficha Técnica Bovino Iniciador" class="w-full h-auto rounded-lg shadow-md mb-4">
+            <button onclick="closeModal('modal-bovino-iniciador')" class="bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal: Ficha Técnica - Bovino Recría -->
+    <div id="modal-bovino-recria" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+            <button onclick="closeModal('modal-bovino-recria')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <h3 class="text-2xl font-bold text-brand-green mb-4">Ficha Técnica - Bovino Recría</h3>
+            <img src="https://i.postimg.cc/V6HXdkQL/bovino-recria.png" alt="Ficha Técnica Bovino Recría" class="w-full h-auto rounded-lg shadow-md mb-4">
+            <button onclick="closeModal('modal-bovino-recria')" class="bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal: Ficha Técnica - Bovino Terminador -->
+    <div id="modal-bovino-terminacion" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+            <button onclick="closeModal('modal-bovino-terminacion')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <h3 class="text-2xl font-bold text-brand-green mb-4">Ficha Técnica - Bovino Terminador</h3>
+            <img src="https://i.postimg.cc/kX2fNLf4/bovino-terminacion.png" alt="Ficha Técnica Bovino Terminador" class="w-full h-auto rounded-lg shadow-md mb-4">
+            <button onclick="closeModal('modal-bovino-terminacion')" class="bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal: Ficha Técnica - Porcino Iniciador -->
+    <div id="modal-porcino-iniciador" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+            <button onclick="closeModal('modal-porcino-iniciador')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <h3 class="text-2xl font-bold text-brand-green mb-4">Ficha Técnica - Porcino Iniciador</h3>
+            <img src="https://i.postimg.cc/FRqJhC3H/porcino-iniciador.png" alt="Ficha Técnica Porcino Iniciador" class="w-full h-auto rounded-lg shadow-md mb-4">
+            <button onclick="closeModal('modal-porcino-iniciador')" class="bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal: Ficha Técnica - Porcino Desarrollo -->
+    <div id="modal-porcino-desarrollo" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+            <button onclick="closeModal('modal-porcino-desarrollo')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <h3 class="text-2xl font-bold text-brand-green mb-4">Ficha Técnica - Porcino Desarrollo</h3>
+            <img src="https://i.postimg.cc/Y9jWKB4L/porcino-desarrollo.png" alt="Ficha Técnica Porcino Desarrollo" class="w-full h-auto rounded-lg shadow-md mb-4">
+            <button onclick="closeModal('modal-porcino-desarrollo')" class="bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal: Ficha Técnica - Porcino Terminador -->
+    <div id="modal-porcino-terminacion" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+            <button onclick="closeModal('modal-porcino-terminacion')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <h3 class="text-2xl font-bold text-brand-green mb-4">Ficha Técnica - Porcino Terminador</h3>
+            <img src="https://i.postimg.cc/N0dHzj0Y/porcino-terminador.png" alt="Ficha Técnica Porcino Terminador" class="w-full h-auto rounded-lg shadow-md mb-4">
+            <button onclick="closeModal('modal-porcino-terminacion')" class="bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal News 1 -->
+    <div id="modal-news-1" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+            <button onclick="closeModal('modal-news-1')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <img src="https://i.postimg.cc/8zzDbRjZ/images-(1).jpg" alt="Stress Térmico" class="w-full h-64 object-cover rounded-xl mb-4">
+            <h3 class="text-2xl font-bold text-brand-green mb-4">La nutrición animal y sus efectos sobre el stress térmico</h3>
+            <div class="prose text-gray-600 space-y-3 text-sm">
+                <p>El estrés térmico en bovinos es un desafío importante en la producción ganadera, especialmente en zonas con climas cálidos o durante las olas de calor.</p>
+                <p>Este tipo de estrés impacta negativamente en la salud, el rendimiento y el bienestar de los animales, y su manejo adecuado puede incluir estrategias de nutrición específicas. A continuación, te presentamos algunas prácticas nutricionales para mitigar el estrés térmico en bovinos:</p>
+                <p><strong>1. Ajuste en la cantidad y calidad de la ración:</strong><br>Menor contenido de fibra: Reducir el contenido de fibra en la dieta puede ayudar, ya que la fermentación de la fibra en el rumen genera calor. Es ideal utilizar forrajes de alta calidad, que son más digestibles y generan menos calor.<br>Incluir grasas protegidas: Las grasas tienen un alto valor energético y producen menos calor durante su digestión en comparación con los carbohidratos y la fibra.</p>
+                <p><strong>2. Balance de electrolitos y minerales:</strong><br>Aumento de sodio, potasio y magnesio: En condiciones de calor, los bovinos pierden minerales esenciales a través del sudor y la orina.</p>
+                <p><strong>3. Aporte de antioxidantes:</strong><br>Vitaminas C y E: Los antioxidantes ayudan a combatir el estrés oxidativo que el estrés térmico puede causar en los tejidos del ganado.</p>
+                <p class="pt-4 border-t font-semibold text-brand-green">Nutrimos hoy, proyectamos el mañana.<br>Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires<br>+54(911)32368112 | info@treshorizontes.com</p>
+            </div>
+            <button onclick="closeModal('modal-news-1')" class="mt-6 bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal News 2 -->
+    <div id="modal-news-2" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+            <button onclick="closeModal('modal-news-2')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <img src="https://i.postimg.cc/dV3PCJxp/7w-QIh-UNT-1256x620-1.jpg" alt="Carne Aviar" class="w-full h-64 object-cover rounded-xl mb-4">
+            <h3 class="text-2xl font-bold text-brand-green mb-4">Argentina logró la reapertura para exportar carne aviar y ovoproductos a uno de los principales mercados mundiales</h3>
+            <div class="prose text-gray-600 space-y-3 text-sm">
+                <p>Argentina logró la reapertura para exportar carne aviar y ovoproductos a uno de los principales mercados mundiales. Las negociaciones con Japón se dieron luego de que Argentina restituyera su estatus de país libre de gripe aviar en abril pasado.</p>
+                <p>"La reapertura constituye un nuevo avance en la agenda agroindustrial bilateral entre Argentina y Japón y genera nuevas oportunidades para el sector avícola nacional, fortaleciendo su inserción en los mercados internacionales", destacaron desde la cartera agropecuaria.</p>
+                <p class="pt-4 border-t font-semibold text-brand-green">Nutrimos hoy, proyectamos el mañana.<br>Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires<br>+54(911)32368112 | info@treshorizontes.com</p>
+            </div>
+            <button onclick="closeModal('modal-news-2')" class="mt-6 bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
+        </div>
+    </div>
+
+    <!-- Modal News 3 -->
+    <div id="modal-news-3" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
+            <button onclick="closeModal('modal-news-3')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
+            <img src="https://i.postimg.cc/bJjBmPmS/63ef7fe980b5a056b787e8666cddab9dd3ad8e5a.jpg" alt="Nutrición Porcina" class="w-full h-64 object-cover rounded-xl mb-4">
+            <h3 class="text-2xl font-bold text-brand-green mb-4">Nutrición animal clave para resiliencia en producción porcina</h3>
+            <div class="prose text-gray-600 space-y-3 text-sm">
+                <p>La nutrición animal anticipada mejora la producción porcina frente a desafíos como el estrés calórico y el destete, potenciando la resiliencia.</p>
+                <p>La nutrición animal proactiva emerge como una estrategia fundamental para fortalecer la resiliencia en la producción porcina. Este enfoque busca preparar a los animales antes de que enfrenten desafíos críticos, como el estrés ambiental o la presión de patógenos.</p>
+                <p>Anticipar y fortalecer a los animales es clave para asegurar resultados consistentes a lo largo del ciclo productivo porcino.</p>
+                <p class="pt-4 border-t font-semibold text-brand-green">Nutrimos hoy, proyectamos el mañana.<br>Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires<br>+54(911)32368112 | info@treshorizontes.com</p>
+            </div>
+            <button onclick="closeModal('modal-news-3')" class="mt-6 bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('open');
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('hidden');
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>
