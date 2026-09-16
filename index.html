@@ -46,6 +46,7 @@
             max-height: 100vh;
             opacity: 1;
         }
+        /* Evita el "salto" visual mientras cargan los íconos de Font Awesome */
         .fa-placeholder { display: inline-block; width: 1em; }
     </style>
 </head>
@@ -378,7 +379,129 @@
         </div>
     </section>
 
-    <!-- (Secciones de Servicios y Condiciones omitidas aquí por longitud, pero no llevan imágenes, no tienes que cambiarlas) -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-orange font-bold tracking-wider uppercase text-sm mb-2 block">NUESTROS SERVICIOS</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-green mb-4">¿Cómo vamos a ayudarlo?</h2>
+                <div class="w-24 h-1 bg-brand-orange mx-auto rounded"></div>
+                <p class="mt-6 text-gray-600 max-w-3xl mx-auto text-lg">
+                    Lo acompañaremos en todas las etapas del desarrollo de sus animales, desde la crianza hasta la faena, con los mejores programas de nutrición para maximizar el beneficio de su negocio.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-brand-light rounded-2xl p-8 border border-gray-100 flex items-start gap-6 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center flex-shrink-0 text-brand-green">
+                        <i class="fas fa-flask text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Fórmulas Especiales</h3>
+                        <p class="text-gray-600">Elaboración de fórmulas especiales ajustadas a las necesidades de cada planteo productivo.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-light rounded-2xl p-8 border border-gray-100 flex items-start gap-6 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center flex-shrink-0 text-brand-green">
+                        <i class="fas fa-truck text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Logística Eficiente</h3>
+                        <p class="text-gray-600">Flota propia y coordinada para garantizar la entrega directa en su establecimiento en tiempo y forma, asegurando disponibilidad permanente.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-light rounded-2xl p-8 border border-gray-100 flex items-start gap-6 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center flex-shrink-0 text-brand-green">
+                        <i class="fas fa-user-md text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Asistencia Técnica</h3>
+                        <p class="text-gray-600">Asistencia personalizada con técnicos especialistas en cada etapa evolutiva.</p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-light rounded-2xl p-8 border border-gray-100 flex items-start gap-6 hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-white rounded-xl shadow-sm flex items-center justify-center flex-shrink-0 text-brand-green">
+                        <i class="fas fa-chalkboard-teacher text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Capacitación Continua</h3>
+                        <p class="text-gray-600">Cursos de capacitación al personal de los establecimientos con nuestro equipo y asesores externos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="#contacto-section" class="inline-flex items-center justify-center bg-brand-green text-white px-8 py-4 rounded-full font-bold hover:bg-brand-orange transition-colors shadow-lg group">
+                    Solicitar asesoría <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="condiciones" class="py-20 bg-brand-light">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-orange font-bold tracking-wider uppercase text-sm mb-2 block">FACILIDADES</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-brand-green mb-4">Condiciones Comerciales</h2>
+                <div class="w-24 h-1 bg-brand-orange mx-auto rounded"></div>
+                <p class="mt-6 text-gray-600 max-w-2xl mx-auto text-lg font-medium">
+                    Que la correcta nutrición de tus animales no tenga límites.
+                </p>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-2">
+                    Te ofrecemos múltiples formas de pago para que puedas acceder a todos los productos que necesitás. Podés realizar tus pagos a través de los siguientes medios:
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                    <div class="space-y-6 flex flex-col justify-around">
+                        <div class="flex items-center gap-4 border-b border-gray-100 pb-4 h-16">
+                            <div class="w-12 h-12 rounded-full bg-brand-orange/10 text-brand-orange flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-exchange-alt text-xl"></i>
+                            </div>
+                            <span class="text-gray-800 font-semibold text-lg">Canje de granos</span>
+                        </div>
+                        <div class="flex items-center gap-4 border-b border-gray-100 pb-4 h-16">
+                            <div class="w-12 h-12 rounded-full bg-brand-orange/10 text-brand-orange flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-money-check text-xl"></i>
+                            </div>
+                            <span class="text-gray-800 font-semibold text-lg">Cheque electrónico</span>
+                        </div>
+                    </div>
+                    <div class="space-y-6 flex flex-col justify-around">
+                        <div class="flex items-center gap-4 border-b border-gray-100 pb-4 h-16">
+                            <div class="w-12 h-12 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-university text-xl"></i>
+                            </div>
+                            <span class="text-gray-800 font-semibold text-lg">Depósito bancario</span>
+                        </div>
+                        <div class="flex items-center gap-4 border-b border-gray-100 pb-4 h-16">
+                            <div class="w-12 h-12 rounded-full bg-brand-green/10 text-brand-green flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-random text-xl"></i>
+                            </div>
+                            <span class="text-gray-800 font-semibold text-lg">Transferencia bancaria</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-100">
+                    <h3 class="font-bold text-gray-800 mb-6 flex items-center gap-2">
+                        <i class="far fa-credit-card text-brand-green"></i> Tarjetas Agropecuarias Convenidas
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium">BBVA Francés Visa Agro</span>
+                        <span class="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium">Galicia Rural</span>
+                        <span class="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium">Macro Visa Agro</span>
+                        <span class="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium">Patagonia Visa Agro</span>
+                        <span class="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium">Santander Rio Visa</span>
+                        <span class="bg-gray-50 border border-gray-200 px-4 py-2 rounded-lg text-sm text-gray-700 font-medium">AgroNación</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="novedades" class="py-20 bg-white">
         <div class="container mx-auto px-4 lg:px-8">
@@ -430,7 +553,139 @@
         </div>
     </section>
 
-    <!-- (Sección de Contacto y Footer se mantienen igual) -->
+    <section id="contacto-section" class="py-20 bg-brand-light">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col lg:flex-row border border-gray-100">
+                <div class="lg:w-5/12 bg-brand-green text-white p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
+                    <div class="relative z-10 space-y-6">
+                        <div>
+                            <span class="text-brand-orange font-bold uppercase tracking-wider text-xs block mb-2">ESTAMOS EN CONTACTO</span>
+                            <h2 class="text-3xl font-bold mb-3">Contáctenos</h2>
+                            <p class="text-gray-200 text-sm leading-relaxed">Estamos para resolver todas sus consultas sobre nutrición animal y asesorar su establecimiento.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-orange">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-orange mb-0.5 text-xs">Ubicación</h4>
+                                    <p class="text-xs text-gray-200 leading-snug">Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-orange">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-orange mb-0.5 text-xs">Llámenos</h4>
+                                    <p class="text-xs text-gray-200">+54(911)32368112</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-orange">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-orange mb-0.5 text-xs">Correo Electrónico</h4>
+                                    <p class="text-xs text-gray-200 break-all">info@treshorizontes.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-orange">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-brand-orange mb-0.5 text-xs">Horarios de Atención</h4>
+                                    <p class="text-xs text-gray-200">Lunes a Viernes: 8:00 a 17:00 hs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute top-12 -left-12 w-32 h-32 bg-brand-orange/20 rounded-full blur-2xl pointer-events-none"></div>
+                </div>
+
+                <div class="lg:w-7/12 p-8 md:p-12 flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Envíenos su consulta</h3>
+                    <p class="text-gray-500 text-sm mb-6">Complete el formulario y nos pondremos en contacto a la brevedad.</p>
+
+                    <form id="contact-form" class="space-y-4" onsubmit="event.preventDefault(); alert('¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.');">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="nombre" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Nombre Completo *</label>
+                                <input type="text" id="nombre" name="nombre" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-all text-sm bg-gray-50/50" placeholder="Su nombre">
+                            </div>
+                            <div>
+                                <label for="telefono" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-all text-sm bg-gray-50/50" placeholder="Cód área + número">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Correo Electrónico</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-all text-sm bg-gray-50/50" placeholder="ejemplo@correo.com">
+                            </div>
+                            <div>
+                                <label for="localidad" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Localidad / Provincia</label>
+                                <input type="text" id="localidad" name="localidad" class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-all text-sm bg-gray-50/50" placeholder="Su ubicación">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="mensaje" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" rows="3" required class="w-full px-4 py-2.5 rounded-xl border border-gray-200 focus:ring-2 focus:ring-brand-green focus:border-brand-green outline-none transition-all text-sm bg-gray-50/50 resize-none" placeholder="¿En qué podemos ayudarle?"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-orange text-white font-bold py-3 px-6 rounded-xl hover:bg-opacity-90 transition-all shadow-md text-sm tracking-wide">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-white pt-16 pb-8 border-t-4 border-brand-orange">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <img src="logo-tres-horizontes.png" alt="Tres Horizontes Logo" width="324" height="260" loading="lazy" decoding="async" class="h-32 w-auto object-contain mb-4 bg-white p-2 rounded">
+                    <p class="text-gray-400 text-sm">Nutrimos hoy, proyectamos el mañana.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-brand-orange">Líneas</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#linea-bovino" class="hover:text-white transition-colors">Línea Bovino</a></li>
+                        <li><a href="#linea-porcino" class="hover:text-white transition-colors">Línea Porcino</a></li>
+                        <li><a href="#linea-avicola" class="hover:text-white transition-colors">Línea Avícola</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-brand-orange">Enlaces</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#nosotros" class="hover:text-white transition-colors">Nosotros</a></li>
+                        <li><a href="#servicios" class="hover:text-white transition-colors">Servicios</a></li>
+                        <li><a href="#condiciones" class="hover:text-white transition-colors">Condiciones Comerciales</a></li>
+                        <li><a href="#novedades" class="hover:text-white transition-colors">Novedades</a></li>
+                        <li><a href="#contacto-section" class="hover:text-white transition-colors">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4 text-brand-orange">Redes Sociales</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/treshorizontess/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors text-white">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/tres-horizontes/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors text-white">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-sm text-gray-500">
+                <p>&copy; 2026 Tres Horizontes. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Modal: Ficha Técnica - Parrilleros Iniciador -->
     <div id="modal-ficha-iniciador" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
@@ -527,7 +782,15 @@
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
             <button onclick="closeModal('modal-news-1')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
             <img src="not1.jpg" alt="Stress Térmico" width="800" height="500" loading="lazy" decoding="async" class="w-full h-64 object-cover rounded-xl mb-4">
-            <!-- Resto del contenido del modal... -->
+            <h3 class="text-2xl font-bold text-brand-green mb-4">La nutrición animal y sus efectos sobre el stress térmico</h3>
+            <div class="prose text-gray-600 space-y-3 text-sm">
+                <p>El estrés térmico en bovinos es un desafío importante en la producción ganadera, especialmente en zonas con climas cálidos o durante las olas de calor.</p>
+                <p>Este tipo de estrés impacta negativamente en la salud, el rendimiento y el bienestar de los animales, y su manejo adecuado puede incluir estrategias de nutrición específicas. A continuación, te presentamos algunas prácticas nutricionales para mitigar el estrés térmico en bovinos:</p>
+                <p><strong>1. Ajuste en la cantidad y calidad de la ración:</strong><br>Menor contenido de fibra: Reducir el contenido de fibra en la dieta puede ayudar, ya que la fermentación de la fibra en el rumen genera calor. Es ideal utilizar forrajes de alta calidad, que son más digestibles y generan menos calor.<br>Incluir grasas protegidas: Las grasas tienen un alto valor energético y producen menos calor durante su digestión en comparación con los carbohidratos y la fibra.</p>
+                <p><strong>2. Balance de electrolitos y minerales:</strong><br>Aumento de sodio, potasio y magnesio: En condiciones de calor, los bovinos pierden minerales esenciales a través del sudor y la orina.</p>
+                <p><strong>3. Aporte de antioxidantes:</strong><br>Vitaminas C y E: Los antioxidantes ayudan a combatir el estrés oxidativo que el estrés térmico puede causar en los tejidos del ganado.</p>
+                <p class="pt-4 border-t font-semibold text-brand-green">Nutrimos hoy, proyectamos el mañana.<br>Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires<br>+54(911)32368112 | info@treshorizontes.com</p>
+            </div>
             <button onclick="closeModal('modal-news-1')" class="mt-6 bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
         </div>
     </div>
@@ -537,7 +800,12 @@
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
             <button onclick="closeModal('modal-news-2')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
             <img src="not2.webp" alt="Carne Aviar" width="800" height="500" loading="lazy" decoding="async" class="w-full h-64 object-cover rounded-xl mb-4">
-            <!-- Resto del contenido del modal... -->
+            <h3 class="text-2xl font-bold text-brand-green mb-4">Argentina logró la reapertura para exportar carne aviar y ovoproductos a uno de los principales mercados mundiales</h3>
+            <div class="prose text-gray-600 space-y-3 text-sm">
+                <p>Argentina logró la reapertura para exportar carne aviar y ovoproductos a uno de los principales mercados mundiales. Las negociaciones con Japón se dieron luego de que Argentina restituyera su estatus de país libre de gripe aviar en abril pasado.</p>
+                <p>La reapertura constituye un nuevo avance en la agenda agroindustrial bilateral entre Argentina y Japón y genera nuevas oportunidades para el sector avícola nacional, fortaleciendo su inserción en los mercados internacionales, destacaron desde la cartera agropecuaria.</p>
+                <p class="pt-4 border-t font-semibold text-brand-green">Nutrimos hoy, proyectamos el mañana.<br>Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires<br>+54(911)32368112 | info@treshorizontes.com</p>
+            </div>
             <button onclick="closeModal('modal-news-2')" class="mt-6 bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
         </div>
     </div>
@@ -547,11 +815,63 @@
         <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative">
             <button onclick="closeModal('modal-news-3')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 text-2xl font-bold">&times;</button>
             <img src="not3.webp" alt="Nutrición Porcina" width="800" height="500" loading="lazy" decoding="async" class="w-full h-64 object-cover rounded-xl mb-4">
-            <!-- Resto del contenido del modal... -->
+            <h3 class="text-2xl font-bold text-brand-green mb-4">Nutrición animal clave para resiliencia en producción porcina</h3>
+            <div class="prose text-gray-600 space-y-3 text-sm">
+                <p>La nutrición animal anticipada mejora la producción porcina frente a desafíos como el estrés calórico y el destete, potenciando la resiliencia.</p>
+                <p>La nutrición animal proactiva emerge como una estrategia fundamental para fortalecer la resiliencia en la producción porcina. Este enfoque busca preparar a los animales antes de que enfrenten desafíos críticos, como el estrés ambiental o la presión de patógenos.</p>
+                <p>Anticipar y fortalecer a los animales es clave para asegurar resultados consistentes a lo largo del ciclo productivo porcino.</p>
+                <p class="pt-4 border-t font-semibold text-brand-green">Nutrimos hoy, proyectamos el mañana.<br>Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires<br>+54(911)32368112 | info@treshorizontes.com</p>
+            </div>
             <button onclick="closeModal('modal-news-3')" class="mt-6 bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
         </div>
     </div>
 
-    <!-- Script se mantiene igual -->
+    <script>
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            const isOpen = menu.classList.toggle('open');
+            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        // Modal functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Cerrar modal con la tecla Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('[id^="modal-"]:not(.hidden)').forEach(m => {
+                    m.classList.add('hidden');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+
+        // Cerrar modal al hacer clic fuera del contenido
+        document.querySelectorAll('[id^="modal-"]').forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
