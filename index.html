@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -46,8 +46,16 @@
             max-height: 100vh;
             opacity: 1;
         }
-        /* Evita el "salto" visual mientras cargan los íconos de Font Awesome */
         .fa-placeholder { display: inline-block; width: 1em; }
+        
+        /* Floating WhatsApp indicator pulse */
+        @keyframes subtle-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+        }
+        .pulse-subtle {
+            animation: subtle-pulse 3s infinite ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-brand-light text-gray-800 antialiased">
@@ -317,7 +325,8 @@
                         <img src="cat-parrfin.webp" alt="Parrilleros Terminador" width="800" height="600" loading="lazy" decoding="async" class="w-full h-40 object-cover">
                         <div class="p-5 flex flex-col flex-grow">
                             <h4 class="font-bold text-lg mb-2 text-brand-brown">Parrilleros Terminador</h4>
-                            <p class="text-sm text-gray-600 mb-4 flex-grow">Dieta diseñada para la última fase, orientada a lograr el peso objetivo con una excelente conversión alimenticia y calidad de carcasa.</p>
+                            <!-- Actualización solicitada: retirado el término "carcasa" -->
+                            <p class="text-sm text-gray-600 mb-4 flex-grow">Dieta diseñada para la última fase, orientada a lograr el peso objetivo con una excelente conversión alimenticia.</p>
                             <button onclick="openModal('modal-avicola-terminador')" class="inline-flex items-center text-brand-brown font-semibold hover:text-brand-orange transition-colors mt-auto text-sm text-left">
                                 Más información <i class="fas fa-search-plus ml-1 text-xs"></i>
                             </button>
@@ -582,13 +591,16 @@
                                     <p class="text-xs text-gray-200">+54(911)32368112</p>
                                 </div>
                             </div>
+                            <!-- Actualizado con info@treshorizontes.com.ar -->
                             <div class="flex items-start gap-3">
                                 <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 text-brand-orange">
                                     <i class="fas fa-envelope"></i>
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-brand-orange mb-0.5 text-xs">Correo Electrónico</h4>
-                                    <p class="text-xs text-gray-200 break-all">info@treshorizontes.com</p>
+                                    <p class="text-xs text-gray-200 break-all">
+                                        <a href="mailto:info@treshorizontes.com.ar" class="hover:underline">info@treshorizontes.com.ar</a>
+                                    </p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-3">
@@ -610,7 +622,12 @@
                     <h3 class="text-2xl font-bold text-gray-800 mb-2">Envíenos su consulta</h3>
                     <p class="text-gray-500 text-sm mb-6">Complete el formulario y nos pondremos en contacto a la brevedad.</p>
 
-                    <form id="contact-form" class="space-y-4" onsubmit="event.preventDefault(); alert('¡Mensaje enviado con éxito! Nos pondremos en contacto pronto.');">
+                    <!-- Feedback message area -->
+                    <div id="form-feedback" class="hidden mb-4 p-4 rounded-xl text-sm font-medium bg-green-50 border border-green-200 text-green-800">
+                        <i class="fas fa-check-circle mr-2 text-green-600"></i> ¡Mensaje enviado con éxito! Nos pondremos en contacto a la brevedad.
+                    </div>
+
+                    <form id="contact-form" class="space-y-4" onsubmit="handleContactSubmit(event)">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label for="nombre" class="block text-xs font-semibold uppercase tracking-wider text-gray-600 mb-1">Nombre Completo *</label>
@@ -671,12 +688,18 @@
                 </div>
                 <div>
                     <h4 class="font-bold text-lg mb-4 text-brand-orange">Redes Sociales</h4>
-                    <div class="flex space-x-4">
-                        <a href="https://www.instagram.com/treshorizontess/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors text-white">
+                    <div class="flex items-center gap-5">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/treshorizontess/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors text-white" aria-label="Instagram de Tres Horizontes">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/tres-horizontes/" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors text-white">
+                        <!-- LinkedIn -->
+                        <a href="https://www.linkedin.com/company/tres-horizontes/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-orange transition-colors text-white" aria-label="LinkedIn de Tres Horizontes">
                             <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/5491132368112?text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[#25D366] transition-colors text-white" aria-label="Contacto por WhatsApp">
+                            <i class="fab fa-whatsapp text-lg"></i>
                         </a>
                     </div>
                 </div>
@@ -686,6 +709,14 @@
             </div>
         </div>
     </footer>
+
+    <!-- Botón flotante accesible de WhatsApp -->
+    <aside aria-label="Contacto rápido por WhatsApp" class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/5491132368112?text=Hola!%20Quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener noreferrer" class="pulse-subtle flex items-center justify-center w-14 h-14 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full shadow-2xl transition-all hover:scale-110 focus:outline-none focus:ring-4 focus:ring-green-400" title="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp text-3xl"></i>
+            <span class="sr-only">Contactar por WhatsApp</span>
+        </a>
+    </aside>
 
     <!-- Modal: Ficha Técnica - Parrilleros Iniciador -->
     <div id="modal-ficha-iniciador" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 hidden p-4">
@@ -789,7 +820,7 @@
                 <p><strong>1. Ajuste en la cantidad y calidad de la ración:</strong><br>Menor contenido de fibra: Reducir el contenido de fibra en la dieta puede ayudar, ya que la fermentación de la fibra en el rumen genera calor. Es ideal utilizar forrajes de alta calidad, que son más digestibles y generan menos calor.<br>Incluir grasas protegidas: Las grasas tienen un alto valor energético y producen menos calor durante su digestión en comparación con los carbohidratos y la fibra.</p>
                 <p><strong>2. Balance de electrolitos y minerales:</strong><br>Aumento de sodio, potasio y magnesio: En condiciones de calor, los bovinos pierden minerales esenciales a través del sudor y la orina.</p>
                 <p><strong>3. Aporte de antioxidantes:</strong><br>Vitaminas C y E: Los antioxidantes ayudan a combatir el estrés oxidativo que el estrés térmico puede causar en los tejidos del ganado.</p>
-                <p class="pt-4 border-t font-semibold text-brand-green">Nutrimos hoy, proyectamos el mañana.<br>Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires<br>+54(911)32368112 | info@treshorizontes.com</p>
+                <p class="pt-4 border-t font-semibold text-brand-green">Nutrimos hoy, proyectamos el mañana.<br>Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires<br>+54(911)32368112 | info@treshorizontes.com.ar</p>
             </div>
             <button onclick="closeModal('modal-news-1')" class="mt-6 bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
         </div>
@@ -804,7 +835,7 @@
             <div class="prose text-gray-600 space-y-3 text-sm">
                 <p>Argentina logró la reapertura para exportar carne aviar y ovoproductos a uno de los principales mercados mundiales. Las negociaciones con Japón se dieron luego de que Argentina restituyera su estatus de país libre de gripe aviar en abril pasado.</p>
                 <p>La reapertura constituye un nuevo avance en la agenda agroindustrial bilateral entre Argentina y Japón y genera nuevas oportunidades para el sector avícola nacional, fortaleciendo su inserción en los mercados internacionales, destacaron desde la cartera agropecuaria.</p>
-                <p class="pt-4 border-t font-semibold text-brand-green">Nutrimos hoy, proyectamos el mañana.<br>Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires<br>+54(911)32368112 | info@treshorizontes.com</p>
+                <p class="pt-4 border-t font-semibold text-brand-green">Nutrimos hoy, proyectamos el mañana.<br>Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires<br>+54(911)32368112 | info@treshorizontes.com.ar</p>
             </div>
             <button onclick="closeModal('modal-news-2')" class="mt-6 bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
         </div>
@@ -820,7 +851,7 @@
                 <p>La nutrición animal anticipada mejora la producción porcina frente a desafíos como el estrés calórico y el destete, potenciando la resiliencia.</p>
                 <p>La nutrición animal proactiva emerge como una estrategia fundamental para fortalecer la resiliencia en la producción porcina. Este enfoque busca preparar a los animales antes de que enfrenten desafíos críticos, como el estrés ambiental o la presión de patógenos.</p>
                 <p>Anticipar y fortalecer a los animales es clave para asegurar resultados consistentes a lo largo del ciclo productivo porcino.</p>
-                <p class="pt-4 border-t font-semibold text-brand-green">Nutrimos hoy, proyectamos el mañana.<br>Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires<br>+54(911)32368112 | info@treshorizontes.com</p>
+                <p class="pt-4 border-t font-semibold text-brand-green">Nutrimos hoy, proyectamos el mañana.<br>Ruta Prov. 8 Km 4<br>Pergamino Provincia de Buenos Aires<br>+54(911)32368112 | info@treshorizontes.com.ar</p>
             </div>
             <button onclick="closeModal('modal-news-3')" class="mt-6 bg-brand-green text-white px-6 py-2 rounded-lg font-semibold hover:bg-brand-orange transition-colors">Cerrar</button>
         </div>
@@ -831,10 +862,12 @@
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
 
-        btn.addEventListener('click', () => {
-            const isOpen = menu.classList.toggle('open');
-            btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                const isOpen = menu.classList.toggle('open');
+                btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            });
+        }
 
         // Modal functions
         function openModal(modalId) {
@@ -872,6 +905,20 @@
                 }
             });
         });
+
+        // Contact form submission handling (removes alert dependency)
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const feedback = document.getElementById('form-feedback');
+            const form = document.getElementById('contact-form');
+            if (feedback && form) {
+                feedback.classList.remove('hidden');
+                form.reset();
+                setTimeout(() => {
+                    feedback.classList.add('hidden');
+                }, 6000);
+            }
+        }
     </script>
 </body>
 </html>
